@@ -1,0 +1,40 @@
+#ifndef __MAIN_LAYER_H__
+#define __MAIN_LAYER_H__
+
+#include "cocos2d.h"
+
+#include "SimpleAudioEngine.h"
+
+#include "BasicLayer.h"
+
+using namespace cocos2d;
+
+
+class MainLayer : public BasicLayer
+{
+public:
+	MainLayer(){}
+	~MainLayer(){}
+public:
+    // Here's a difference. Method 'init' in cocos2d-x returns bool, instead of returning 'id' in cocos2d-iphone
+    virtual bool init();  
+
+    // there's no 'id' in cpp, so we recommand to return the exactly class pointer
+    static CCScene* scene();
+    
+
+    // implement the "static node()" method manually
+    LAYER_CREATE_FUNC(MainLayer);
+
+	virtual void onEnter();
+public:
+	void setupViews();
+
+private:
+	void StartMenu_Func(CCObject* pSender);
+	void OptMenu_Func(CCObject* pSender);
+	void AboutMenu_Func(CCObject* pSender);
+
+};
+
+#endif  // __HELLOWORLD_SCENE_H__
